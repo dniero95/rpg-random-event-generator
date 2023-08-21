@@ -6,19 +6,16 @@ import { RandomTableComponent } from './components/random-table/random-table.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // material import
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon'
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RandomTableComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatTableModule
-  ],
+  declarations: [AppComponent, RandomTableComponent],
+  imports: [BrowserModule, BrowserAnimationsModule, MatTableModule, MatToolbarModule, MatButtonModule, MatIconModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
