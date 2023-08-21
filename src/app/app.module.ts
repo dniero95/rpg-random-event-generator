@@ -7,14 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // material import
 import { MatTableModule } from '@angular/material/table';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button'
-import {MatIconModule} from '@angular/material/icon'
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [AppComponent, RandomTableComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatTableModule, MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    ClipboardModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

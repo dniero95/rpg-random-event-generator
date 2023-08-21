@@ -9,6 +9,7 @@
   <button
     mat-icon-button
     aria-label="Icon-button with content_copy icon"
+    [cdkCopyToClipboard]="copyTableContentAsCSV()"
   >
     <mat-icon>content_copy</mat-icon>
   </button>

@@ -1,11 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-  inject,
-} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { VampireDowntimeElement } from 'src/app/interfaces/vampire-downtime-element';
 import { RowService } from 'src/app/services/row.service';
@@ -15,7 +8,7 @@ import { RowService } from 'src/app/services/row.service';
   templateUrl: './random-table.component.html',
   styleUrls: ['./random-table.component.scss'],
 })
-export class RandomTableComponent  {
+export class RandomTableComponent {
   displayedColumns: string[] = [
     'position',
     'Turf',
@@ -28,13 +21,29 @@ export class RandomTableComponent  {
   // dataSource!:VampireDowntimeElement[];
   dataSource = new MatTableDataSource<VampireDowntimeElement>([]);
   public rowService = inject(RowService);
-  private cdr = inject(ChangeDetectorRef);
-
 
   test() {
+    this.rowService
+      .getVampireDowntimeRows()
+      .subscribe((data: VampireDowntimeElement[]) => {
+        this.dataSource.data = data;
+      });
+  }
 
-    this.rowService.getVampireDowntimeRows().subscribe((data: VampireDowntimeElement[]) => {
-      this.dataSource.data = data;
+  copyTableContentAsCSV(): string {
+    let text = '';
+    this.displayedColumns.forEach((element) => {
+      if (element !== 'position' && element !== 'Required Roll') {
+        text += `${element};`;
+      }else if(element === 'Required Roll'){
+        text += `${element}`;
+      }
     });
+    text += '\n';
+
+    this.rowService.vampireDowntimeRows.forEach(element=>{
+      text += `${element.turf};${element.eventType};${element.reward};${element.rewardNumberRoll};${element.npcFaction};${element.requiredRoll}\n`;
+    })
+    return text;
   }
 }
