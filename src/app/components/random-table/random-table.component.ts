@@ -9,18 +9,7 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const DATA: VampireDowntimeElement[] = [
 
-  {
-    position: 0,
-    turf: '19th Floor',
-    eventType: 'Assault',
-    reward: 'Coin',
-    rewardNumberRoll: 1,
-    npcFaction: 'Werewolves',
-    requiredRoll: 'Physical',
-  },
-];
 
 @Component({
   selector: 'app-random-table',
@@ -29,10 +18,10 @@ const DATA: VampireDowntimeElement[] = [
 })
 export class RandomTableComponent implements OnInit {
   displayedColumns: string[] = ['position','Turf', 'Event type', 'Reward', 'Reward Number Roll', 'NPC Faction', 'Required Roll'];
-  dataSource = DATA;
+  dataSource!:VampireDowntimeElement[];
   public rowService = inject(RowService);
 
   ngOnInit(): void {
-    console.log(this.rowService.data);
+    this.dataSource = this.rowService.vampireDowntimeRows;
   }
 }
