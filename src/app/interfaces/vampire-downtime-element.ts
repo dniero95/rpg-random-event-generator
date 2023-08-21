@@ -1,4 +1,5 @@
 export interface VampireDowntimeElement {
+  position:number,
   turf: string;
   eventType: string;
   reward: string;
