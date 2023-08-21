@@ -2,14 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { VampireDowntimeElement } from 'src/app/interfaces/vampire-downtime-element';
 import { RowService } from 'src/app/services/row.service';
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
-
-
 
 @Component({
   selector: 'app-random-table',
