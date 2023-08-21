@@ -33,7 +33,7 @@ export class RandomTableComponent  {
 
   test() {
 
-    this.rowService.doSomething().subscribe((data: VampireDowntimeElement[]) => {
+    this.rowService.getVampireDowntimeRows().subscribe((data: VampireDowntimeElement[]) => {
       this.dataSource.data = data;
     });
   }

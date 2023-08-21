@@ -49,27 +49,34 @@ export class RowService {
       }
     });
 
+    const rewardValue = this.getRandomArrayElement(rewards);
+
     row = {
       position: this.vampireDowntimeRows.length,
-      turf: turfes[Math.floor(Math.random() * turfes.length)],
-      eventType: eventTypes[Math.floor(Math.random() * eventTypes.length)],
-      reward: rewards[Math.floor(Math.random() * rewards.length)],
-      rewardNumberRoll:
-        rewardNumberRolls[Math.floor(Math.random() * rewardNumberRolls.length)],
-      npcFaction: npcFactions[Math.floor(Math.random() * npcFactions.length)],
-      requiredRoll:
-        requiredRolls[Math.floor(Math.random() * requiredRolls.length)],
+      turf: this.getRandomArrayElement(turfes),
+      eventType: this.getRandomArrayElement(eventTypes),
+      reward: rewardValue,
+      rewardNumberRoll: rewardValue.includes('and')
+        ? [
+            this.getRandomArrayElement(rewardNumberRolls),
+            this.getRandomArrayElement(rewardNumberRolls),
+          ]
+        : this.getRandomArrayElement(rewardNumberRolls),
+      npcFaction: this.getRandomArrayElement(npcFactions),
+      requiredRoll: this.getRandomArrayElement(requiredRolls),
     };
 
     this.vampireDowntimeRows.push(row);
-
-
   }
 
-  // use example at 
+  // use example at
   // https://stackblitz.com/edit/angular-mat-table-data-source-update-function?file=app%2Ftable-pagination-example.ts
-  doSomething(): Observable<VampireDowntimeElement[]> {
+  getVampireDowntimeRows(): Observable<VampireDowntimeElement[]> {
     this.generateRandomRow();
     return of(this.vampireDowntimeRows);
+  }
+
+  private getRandomArrayElement<T>(array: T[]): T {
+    return array[Math.floor(Math.random() * array.length)];
   }
 }
