@@ -15,7 +15,7 @@ import { RowService } from 'src/app/services/row.service';
   templateUrl: './random-table.component.html',
   styleUrls: ['./random-table.component.scss'],
 })
-export class RandomTableComponent implements OnInit, OnChanges {
+export class RandomTableComponent  {
   displayedColumns: string[] = [
     'position',
     'Turf',
@@ -30,21 +30,8 @@ export class RandomTableComponent implements OnInit, OnChanges {
   public rowService = inject(RowService);
   private cdr = inject(ChangeDetectorRef);
 
-  ngOnInit(): void {
-    // this.dataSource = this.rowService.vampireDowntimeRows;
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    for (const propName in changes) {
-      console.log(propName);
-    }
-  }
 
   test() {
-    // this.rowService.generateRandomRow();
-    // // this.dataSource = this.rowService.vampireDowntimeRows;
-    // this.cdr.detectChanges();
-    // console.log(this.dataSource);
 
     this.rowService.doSomething().subscribe((data: VampireDowntimeElement[]) => {
       this.dataSource.data = data;

@@ -63,17 +63,13 @@ export class RowService {
 
     this.vampireDowntimeRows.push(row);
 
-    // console.log(this.vampireDowntimeRows);
-    // console.log(this.data);
 
-    // return row;
   }
 
+  // use example at 
+  // https://stackblitz.com/edit/angular-mat-table-data-source-update-function?file=app%2Ftable-pagination-example.ts
   doSomething(): Observable<VampireDowntimeElement[]> {
-    // commonly something like:
-    // return this.httpClient.get('https://example.org/rest-api/items/');
     this.generateRandomRow();
-
     return of(this.vampireDowntimeRows);
   }
 }
