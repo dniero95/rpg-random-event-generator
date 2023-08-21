@@ -30,7 +30,7 @@ const DATA: VampireDowntimeElement[] = [
 export class RandomTableComponent implements OnInit {
   displayedColumns: string[] = ['position','Turf', 'Event type', 'Reward', 'Reward Number Roll', 'NPC Faction', 'Required Roll'];
   dataSource = DATA;
-  rowService = inject(RowService);
+  public rowService = inject(RowService);
 
   ngOnInit(): void {
     console.log(this.rowService.data);
