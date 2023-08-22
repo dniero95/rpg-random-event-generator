@@ -22,7 +22,7 @@ export class RandomTableComponent {
   dataSource = new MatTableDataSource<VampireDowntimeElement>([]);
   public rowService = inject(RowService);
 
-  test() {
+  addRow() {
     this.rowService
       .getVampireDowntimeRows()
       .subscribe((data: VampireDowntimeElement[]) => {
