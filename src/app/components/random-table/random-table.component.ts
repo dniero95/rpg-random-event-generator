@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { VampireDowntimeElement } from 'src/app/interfaces/vampire-downtime-element';
 import { RowService } from 'src/app/services/row.service';
@@ -8,7 +8,13 @@ import { RowService } from 'src/app/services/row.service';
   templateUrl: './random-table.component.html',
   styleUrls: ['./random-table.component.scss'],
 })
-export class RandomTableComponent {
+export class RandomTableComponent implements OnInit{
+  ngOnInit(): void {
+    for (let index = 0; index < 7; index++) {
+      this.addRow();
+      
+    }
+  }
   displayedColumns: string[] = [
     'position',
     'Turf',
