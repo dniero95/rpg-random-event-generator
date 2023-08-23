@@ -13,6 +13,14 @@
   >
     <mat-icon>content_copy</mat-icon>
   </button>
+  <span class="spacer"></span>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
 </mat-toolbar>
 <table mat-table [dataSource]="dataSource" class="mat-z8">
   <!--- Note that these columns can be defined in any order.

@@ -11,6 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppComponent, RandomTableComponent],
@@ -22,6 +23,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatButtonModule,
     MatIconModule,
     ClipboardModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
